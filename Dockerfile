@@ -1,21 +1,13 @@
 # Use official Java 17 JDK image
 FROM eclipse-temurin:17-jdk-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy Maven project files
-COPY pom.xml .
-COPY src ./src
+# Copy the pre-built JAR from your repo
+COPY target/springcrud-0.0.1-SNAPSHOT.jar app.jar
 
-# Build the JAR inside the container
-RUN ./mvnw clean package -DskipTests
-
-# Copy the generated JAR to a standard name
-RUN cp target/*.jar app.jar
-
-# Expose port
+# Expose the port your service will run on
 EXPOSE 8083
 
-# Run the application
+# Run the app, use Render's PORT env variable if set
 ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8083}"]
