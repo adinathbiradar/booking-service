@@ -9,7 +9,7 @@ COPY target/*.jar app.jar
 
 # Expose the port your service will run on
 # Render will map its $PORT to this port
-EXPOSE 8083
+EXPOSE 8080
 
 # Run the Spring Boot application using Render's $PORT environment variable
-ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8083}"]
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]
