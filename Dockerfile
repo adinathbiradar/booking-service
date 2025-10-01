@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copy the built JAR into the container (rename to app.jar)
-COPY target/*.jar app.jar
+COPY target/springcrud-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the default port (Render will override with $PORT if needed)
 EXPOSE 8083
