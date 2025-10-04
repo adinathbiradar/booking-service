@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/bookings")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/bookings")
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "https://hotelbookingbyadinath.netlify.app"
+	})
 public class BookingController {
 
     @Autowired
